@@ -145,6 +145,7 @@ def save(data):
             print(data[i])
             print(res)
     # 保存数据
+    # print(result_data)
     MongodbUtil.save_data_ford(result_data)
 
 if __name__ == '__main__':

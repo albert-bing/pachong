@@ -36,14 +36,14 @@ def update_data_ford(result_data):
 
 def save_data_ford(result_data):
     logging.info("数据开始更新.....")
-    myclient = pymongo.MongoClient(host=host1, port=27017)
+    myclient = pymongo.MongoClient(host=host, port=27017)
     db = myclient.admin
-    db.authenticate(username1,passwd1)
+    db.authenticate(username,passwd)
     my_db = myclient.poi
     mycol = my_db.ford_website_sales
     for i in range(0, len(result_data), 1):
         mycol.insert_one(eval(result_data[i]))
-    mycol.create_index([("location", GEO2D)], name='location')
+    # mycol.create_index([("location", GEO2D)], name='location')
     logging.info("数据更新完成！！")
 
 
